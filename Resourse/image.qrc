@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="image">
+    <file alias="fon">background.jpg</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,92 @@
+1) Сделать комментарии к коду, чтобы знать, какая фукция или класс за что отвечает.
+2) Связать интерфейс UI с созданной базой данных.
+3) Каждый класс (или каждые 2-3 класса, которые жёстко связаны) разделить на разные Python файлы
+
+4) Сделать стартовое окно, где будет две кнопки, авторизация и регистрация, после чего будут открыты соответствующие окна:
+        a) Окно авторизации (после авторизации, нужно переходить в новое окно (пусть оно будет пустым, потом там будет сам чат))
+        b) Окно регистрации (после регистрации, нужно переходить на предыдущее (первое) окно)
+5) Попробовать сделать какую нибудь динамическую анимацию для UI объекта в окне регистрации (по желанию)
+
+6) GitHub - сделать приватный репозиторий у себя на странице и добавить меня как участника.
+
+8) Почитать про SQL
+
+Занятия:
+    Элементы Qt
+    GIT
+    SQL
+    TCP протокол
+
+
+    #BD = DataBase_TXT()
+    BD = DataBase_JSON()
+
+    FirstAcc = Account(0, 'Ktoto', 123, 1234)
+    SecondAcc = Account(1, 'EtoYa', 2375, 14)
+    chat = Chat(0, 'name')
+
+    BD.addAccount(FirstAcc)
+    BD.addAccount(SecondAcc)
+    BD.addChat(chat)
+    BD.addAccountIDtoChat(chat.getID(), FirstAcc.getID())
+    BD.addAccountIDtoChat(chat.getID(), SecondAcc.getID())
+    #BD.save('klslfs.json')
+
+    #T1 = dt.now()
+    #for i in range(1,100000000): a = i*i/i*i/i
+    #T2 = dt.now()
+
+    #print(T2-T1)
+
+    #DB = DataBase()
+    #Reg = Registration(DB)
+
+    #DB_js = DataBase_JSON()
+
+    #MyAccount = Account(id=0, login='q', password='1', pincode='1')
+    #DB.addAccount(MyAccount)
+
+    #print(DB.getIDbyLogin(MyAccount.getLogin()))
+    #print(type(Chat(0, 'Тестиик', [0, 2, 5])))
+
+    #MyButt = MyLittleButton()
+
+    #MyButt.show()
+
+    #MyAccount = Account(id=0, login='Fish1', password='1234', pincode='123456789')
+    #NotMyAccount = Account(id=1, login='Fgrtw', password='82472', pincode='8754')
+    #DB_js.addAccount(MyAccount)
+    #DB_js.addAccount(NotMyAccount)
+
+    # DB_js.save('klslfs.json')
+    #DB_js.load('klslfs.json')
+
+    #for acc in DB_js.getAccountList():
+    #    print(acc)
+
+    #Reg = Registration(BD)
+    #Reg.show()
+    #IDontKnowThisAccount = Account(id=15, login='Alic', password='82472', pincode='8754')
+
+    #AccountsLst = AccountList()
+
+    #BD.addAccount(MyAccount)
+    #BD.addAccount(NotMyAccount)
+    #BD.addAccount(IDontKnowThisAccount)
+
+    #BD.save('NotMyBD.txt')
+    #BD.clear()
+    #BD.load('MyBD.txt')
+
+    #for acc in BD.getAccountList():
+    #    print(acc)
+    #AccountsLst.removeAccountByID(15)
+    #print(AccountsLst.getByID(15))
+
+
+    #BD.load("MyBD.txt")
+
+    Regist = RegistrationAcc(BD)
+    Enter = EnterAcc(BD)
+    Enter.show()
+    #Regist.show()
