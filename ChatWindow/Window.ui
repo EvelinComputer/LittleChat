@@ -6,247 +6,80 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>852</width>
-    <height>668</height>
+    <width>799</width>
+    <height>654</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: rgb(133, 80, 226);</string>
   </property>
   <property name="animated">
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="9" column="3">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="12" column="1">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="5" column="4">
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="14" column="1">
-     <widget class="QLCDNumber" name="LCD"/>
-    </item>
-    <item row="14" column="0">
-     <spacer name="horizontalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="15" column="3">
-     <widget class="QCheckBox" name="C_Check">
-      <property name="text">
-       <string>Разрешить что-нибудь</string>
-      </property>
-     </widget>
-    </item>
-    <item row="14" column="3">
-     <widget class="QPushButton" name="B_Second">
-      <property name="font">
-       <font>
-        <family>Segoe UI</family>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Отправить</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="3">
-     <widget class="QLabel" name="T_Chestno">
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-        <italic>true</italic>
-        <strikeout>false</strikeout>
-       </font>
-      </property>
-      <property name="text">
-       <string>Честно :)</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::AutoText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="openExternalLinks">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="16" column="0" colspan="3">
-     <widget class="QProgressBar" name="Progress">
-      <property name="value">
-       <number>24</number>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="3">
-     <widget class="QLabel" name="T_Chatik">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="B_First">
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>0</height>
+        <width>200</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>50</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <family>Nirmala UI</family>
-        <pointsize>22</pointsize>
-        <italic>true</italic>
-        <strikeout>false</strikeout>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>13</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: red;
-background-color: rgb(190, 255, 172);
-border-radius: 10px;
-border-color: black;
-border: 5px;</string>
+       <string notr="true">QPushButton{
+	background: rgb(170, 144, 255);
+	border-radius: 25px;
+	color: rgb(100, 49, 171);
+}
+
+QPushButton:hover{
+	background: rgb(141, 88, 221);
+	border-radius: 25px;
+	color:rgb(68, 34, 116);
+}
+
+QPushButton:pressed{
+	background: rgb(37, 18, 75);
+	border-radius: 25px;
+	color:rgb(141, 88, 221);
+}</string>
       </property>
       <property name="text">
-       <string>Скоро тут будет чатик</string>
+       <string>Обратно</string>
       </property>
      </widget>
     </item>
-    <item row="15" column="1">
-     <spacer name="verticalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
+    <item row="0" column="1">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="minimumSize">
        <size>
-        <width>20</width>
-        <height>40</height>
+        <width>600</width>
+        <height>500</height>
        </size>
       </property>
-     </spacer>
-    </item>
-    <item row="8" column="0" colspan="3">
-     <widget class="QGroupBox" name="R_Group">
-      <property name="title">
-       <string/>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QRadioButton" name="R_First">
-         <property name="font">
-          <font>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Радио, чтобы не скучали</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>100</width>
-           <height>100</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QRadioButton" name="R_Second">
-         <property name="font">
-          <font>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>И ещё</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="14" column="2">
-     <spacer name="horizontalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="12" column="3">
-     <widget class="QPushButton" name="B_First">
-      <property name="font">
-       <font>
-        <family>Segoe UI Variable Display Semil</family>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Кнопка раз</string>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(87, 57, 147);
+border-radius: 25px;</string>
       </property>
      </widget>
-    </item>
-    <item row="5" column="0" colspan="3">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="13" column="3">
-     <widget class="QLineEdit" name="E_lineChat"/>
     </item>
    </layout>
   </widget>
@@ -255,7 +88,7 @@ border: 5px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>852</width>
+     <width>799</width>
      <height>26</height>
     </rect>
    </property>
