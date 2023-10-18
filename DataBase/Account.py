@@ -3,13 +3,14 @@ import logging as log
 
 # Создание класса для аккаунтов
 class Account:
-    # Создание локальных переменных
-    __id = int
-    __login = str
-    __password = str
-    __pincode = str
 
-    def __init__(self, id, login, password, pincode):
+    # Создание локальных переменных
+    __id = int  # ID аккаунта
+    __login = str  # Логин аккаунта
+    __password = str  # Пароль аккаунта
+    __pincode = str  # Пинкод аккаунта
+
+    def __init__(self, id = None, login = None, password = None, pincode = None):
         self.__id = id
         self.__login = login
         self.__password = password
@@ -56,36 +57,41 @@ class Account:
 class AccountList(list):
     # Добавление аккаунта
     def addAccount(self, account):
-        if str(type(account)) == "<class 'DataBase.Account'>":  # Проверка на тип данных аккаунта
+        if type(account) == type(Account()):  # Проверка на тип данных аккаунта
             for elem in self:  # Проверка на ID
-                if elem.getID() == account.getID():
-                    log.error('Аккаунт с таким ID уже существует')
+                if elem.getID() == account.getID():  # Проверка на идентичность ID
+                    log.error('Аккаунт с таким ID уже существует')  # Выдача ошибки
                     return None
-            self.append(account)
+            self.append(account)  # Добавление аккаунта
+
         else:
-            log.error('Неверный тип данных для аккаунта')
+            log.error('Неверный тип данных для аккаунта')  # Выдача ошибки
 
     # Нахождение аккаунта по ID
     def getByID(self, id):
-        for item in self:
-            if item.getID() == id:
+        for item in self:  # Перебор списка аккаунтов
+            if item.getID() == id:  # Проверка на верность ID
                 return item
 
-        log.error("Такого аккаунта нет")
+        log.error("Такого аккаунта нет")  # Выдача ошибки
         return None
 
     # Нахождение аккаунта по логину
     def getByLogin(self, login):
-        for item in self:
-            if item.getLogin() == login:
+        for item in self:  # Перебор списка аккаунтов
+            if item.getLogin() == login:  # Проверка на верность логина
                 return item.getID()
+
+        log.error("Такого аккаунта нет")  # Выдача ошибки
+        return None
 
     # Удаление аккаунта по ID
     def removeAccountByID(self, id):
-        for num in range(len(self)):
-            if self[num].getID() == id:
+        for num in range(len(self)):  # Перебор индексов списка аккаунтов
+            if self[num].getID() == id:  # Проверка на верность id
                 return self.pop(num)
-        log.error("Такого аккаунта нет")
+
+        log.error("Такого аккаунта нет")  # Выдача ошибки
         return None
 
 

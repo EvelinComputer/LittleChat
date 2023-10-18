@@ -2,6 +2,7 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtCore import Qt, pyqtSignal
 
+
 class LittleChat(QMainWindow):
     goToAutorisation = pyqtSignal()
 
@@ -11,6 +12,7 @@ class LittleChat(QMainWindow):
 
         self.B_First.clicked.connect(self.button_clicked)
 
+    # Переход в окно регистрация (ну или выйти из аккаунта)
     def button_clicked(self):
         self.hide()
         self.goToAutorisation.emit()

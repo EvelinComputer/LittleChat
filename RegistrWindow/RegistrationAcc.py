@@ -1,7 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtCore import Qt, pyqtSignal
-from DataBase import Account
+from DataBase.Account import Account
 
 
 class RegistrationAcc(QMainWindow):
@@ -26,10 +26,12 @@ class RegistrationAcc(QMainWindow):
         pincode = self.LE_Pincode.text()  # Создаём пинкод
         self.LE_Pincode.setText('')  # Мне надоело писать "очищаем строку"
 
-        acc = Account(id=self.DataBase.len(), login=login, password=password, pincode=pincode)  # Создание аккаунта
+        acc = Account(id=self.DataBase.lenAccounts(), login=login, password=password, pincode=pincode)  # Создание аккаунта
         self.DataBase.addAccount(acc)  # Добавляем аккаунт
+        self.DataBase.save("DataBase.db")
         print(login, password, pincode)  # Выводим данные от аккаунта в консоль
 
+    # Переход к окну авторизации
     def ToEnter(self):
         self.hide()  # Закрытие окна
         self.goToAutorisation.emit()
