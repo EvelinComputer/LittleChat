@@ -1,21 +1,28 @@
 from PyQt6 import uic
-from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtCore import Qt, QTimer
-from DataBase import Account
-from RegistrWindow.RegistrationAcc import RegistrationAcc
+from PyQt6.QtWidgets import QMainWindow
+from Server.Server import LittleChatServer
+from DataBase.DataBase import DataBase_MySQL
 from ChatWindow.LittleChat import LittleChat
+from RegistrWindow.RegistrationAcc import RegistrationAcc
 
 class AutorisWindow(QMainWindow):
-    def __init__(self, base):
-        super(AutorisWindow, self).__init__()  # Наследуем конструктор QMainWindow
-        uic.loadUi("./AutorisWindow/AutorisWindow.ui", self)  # Загружаем UI форму (Qt Designer)
 
-        self.DataBase = base  # База данных
+    def __init__(self, server : LittleChatServer):
+
+        # Наследуем конструктор QMainWindow
+        super(AutorisWindow, self).__init__()
+
+        # Загружаем UI форму (Qt Designer)
+        uic.loadUi("./AutorisWindow/AutorisWindow.ui", self)
+
+        # Подключение к серверу
+        self.__Server = server
 
         self.B_Enter.clicked.connect(self.EnterClick)
         self.B_ToReg.clicked.connect(self.ToRegistration)
 
-        self.__registrationWindow = RegistrationAcc(self.DataBase)
+        self.__registrationWindow = RegistrationAcc(self.__Server)
         self.__registrationWindow.goToAutorisation.connect(self.slotShowWindow)
 
         self.__chatWindow = LittleChat()
@@ -23,49 +30,50 @@ class AutorisWindow(QMainWindow):
 
     # Установка стиля для текста с сообщением
     def errorLabel(self):
-        style_sheet = 'background: rgb(255, 212, 111);\n'\
-                        'color: rgb(74, 61, 21);\n'\
-                        'border-radius: 17px; '
+        style_sheet = 'background:  #D0CBDC;\n'\
+                        'color: #6E677F;\n'\
+                        'border-radius: 20px; '
+
+        return style_sheet
+
+    def ghostLabel(self):
+        style_sheet = 'background:  #D0CBDC;\n'\
+                        'color: #6E677F;\n'\
+                        'border-radius: 20px; '
 
         return style_sheet
 
     # Смена окна
     def EnterClick(self):
+
         # Создание переменных для данных аккаунта
-        login = self.LE_Login.text()  # Создаём переменную с логином
-        self.LE_Login.setText('')  # Очищаем строку с логином
-        password = self.LE_Password.text()  # Создаём переменную с паролем
-        self.LE_Password.setText('')  # Очищаем строку с паролем
+        login = self.LE_Login.text()            # Создаём переменную с логином
+        password = self.LE_Password.text()      # Создаём переменную с паролем
 
-        id = self.DataBase.getAccountIDbyLogin(login)  # Создаём переменную с ID
+        # Проверяем существует ли аккаунт
+        state, message = self.__Server.checkAccountDB(login, password)
 
-        # Проверка на верность введённых данных
-        if id >= 0:
-            tmp = self.DataBase.getAccount(id)  # Переменная с аккаунтом
-            if tmp.getPassword() == password:  # Проверка на верность пароля
-                # Выдача сообщения об успешной авторизации
-                self.L_Error.setStyleSheet(self.errorLabel())
-                self.L_Error.setText('Авторизация проведена')
-                print('Авторизация проведена')  # Авторизация проведена
-                # Переход к окну чата
-                self.hide()
-                self.__chatWindow.show()
-            else:
-                # Выдача ошибки
-                self.L_Error.setStyleSheet(self.errorLabel())
-                self.L_Error.setText('Пароль неверный')
-                print('Error. Пароль неправильный')
+        # Если существует
+        if state:
+            self.__chatWindow.showFullScreen()              # Показываем окно чата
+            self.hide()                                     # Скрываем окно авторизации
+            self.L_Error.setStyleSheet(self.ghostLabel())
+            self.L_Error.setText('')                        # Очищаем строку предуприждения об ошибке
+            self.LE_Login.setText('')                       # Очищаем строку с логином
+            self.LE_Password.setText('')                    # Очищаем строку с паролем
+
+        # Если произошла какая-та ошибка
         else:
-            # Выдача ошибки
             self.L_Error.setStyleSheet(self.errorLabel())
-            self.L_Error.setText('Логин не найден')
-            print('Error. Логин не найден')
+            self.L_Error.setText(message)
+
+
 
     # Переход к окну регистрации
     def ToRegistration(self):
+        self.__registrationWindow.showFullScreen()
         self.hide()
-        self.__registrationWindow.show()
 
-    # Показ окна
+    # Показ окна в полноэкранном режиме
     def slotShowWindow(self):
-        self.show()
+        self.showFullScreen()

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #B9B4C7;</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
     <size>
@@ -21,7 +24,29 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: rgb(87, 57, 147)</string>
+    <string notr="true">QLabel{
+	background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; 
+}
+
+QPushButton{
+	background: #6C667D;
+	border-radius: 25px;
+	color: #D0CBDC;
+}
+
+QPushButton:hover{
+	background: #77679F;
+	border-radius: 25px;
+	color: #352F44;
+}
+
+QPushButton:pressed{
+	background: #211D2B;
+	border-radius: 25px;
+	color: #B9B4C7;
+}</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
@@ -72,9 +97,9 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
-border-radius: 17px; </string>
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
       </property>
       <property name="text">
        <string>Номер телефона</string>
@@ -108,11 +133,6 @@ border-radius: 17px; </string>
         <bold>true</bold>
        </font>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background: rgb(170, 144, 255);
-color: rgb(100, 49, 171);
-border-radius: 30px; </string>
-      </property>
       <property name="text">
        <string>Регистрация</string>
       </property>
@@ -137,9 +157,9 @@ border-radius: 30px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
-border-radius: 15px; </string>
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -178,9 +198,9 @@ border-radius: 15px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
-border-radius: 17px; </string>
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
       </property>
       <property name="text">
        <string>Электронная почта</string>
@@ -206,9 +226,9 @@ border-radius: 17px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
-border-radius: 15px; </string>
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -237,8 +257,8 @@ border-radius: 15px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
 border-radius: 20px; </string>
       </property>
       <property name="text">
@@ -271,9 +291,9 @@ border-radius: 20px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
-border-radius: 15px; </string>
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -321,9 +341,9 @@ border-radius: 15px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
-border-radius: 17px; </string>
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
       </property>
       <property name="text">
        <string>Фамилия</string>
@@ -355,8 +375,8 @@ border-radius: 17px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
 border-radius: 20px; </string>
       </property>
       <property name="text">
@@ -389,9 +409,12 @@ border-radius: 20px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
-border-radius: 15px; </string>
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -413,11 +436,6 @@ border-radius: 15px; </string>
         <italic>false</italic>
         <bold>true</bold>
        </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: rgb(133, 80, 226);
-border-radius: 28px;
-color: rgb(56, 23, 113)</string>
       </property>
       <property name="text">
        <string>Уже есть аккаунт?</string>
@@ -443,9 +461,12 @@ color: rgb(56, 23, 113)</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
-border-radius: 15px; </string>
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -468,9 +489,9 @@ border-radius: 15px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
-border-radius: 15px; </string>
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
       </property>
       <property name="inputMask">
        <string/>
@@ -505,9 +526,9 @@ border-radius: 15px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
-border-radius: 17px; </string>
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
       </property>
       <property name="text">
        <string>Имя</string>
@@ -533,9 +554,9 @@ border-radius: 17px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
-border-radius: 15px; </string>
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -564,9 +585,9 @@ border-radius: 15px; </string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
-border-radius: 17px; </string>
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
       </property>
       <property name="text">
        <string>Пин-код от вашей карты</string>
@@ -585,25 +606,6 @@ border-radius: 17px; </string>
         <italic>false</italic>
         <bold>true</bold>
        </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background: rgb(170, 144, 255);
-	border-radius: 15px;
-	color: rgb(100, 49, 171);
-}
-
-QPushButton:hover{
-	background: rgb(141, 88, 221);
-	border-radius: 15px;
-	color:rgb(68, 34, 116);
-}
-
-QPushButton:pressed{
-	background: rgb(37, 18, 75);
-	border-radius: 20px;
-	color:rgb(141, 88, 221);
-}</string>
       </property>
       <property name="text">
        <string>Зарегистрироваться</string>
@@ -631,11 +633,6 @@ QPushButton:pressed{
         <bold>false</bold>
        </font>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background: rgb(170, 144, 255);
-color: rgb(100, 49, 171);
-border-radius: 30px; </string>
-      </property>
       <property name="text">
        <string>Мы не делимся данными со сторонними лицами</string>
       </property>
@@ -660,25 +657,6 @@ border-radius: 30px; </string>
         <bold>true</bold>
        </font>
       </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background: rgb(170, 144, 255);
-	border-radius: 25px;
-	color: rgb(100, 49, 171);
-}
-
-QPushButton:hover{
-	background: rgb(141, 88, 221);
-	border-radius: 25px;
-	color:rgb(68, 34, 116);
-}
-
-QPushButton:pressed{
-	background: rgb(37, 18, 75);
-	border-radius: 25px;
-	color:rgb(141, 88, 221);
-}</string>
-      </property>
       <property name="text">
        <string>Войти!</string>
       </property>
@@ -696,6 +674,28 @@ QPushButton:pressed{
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="14" column="1">
+     <widget class="QLabel" name="L_Error">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:  #D0CBDC;
+color: #6E677F;
+border-radius: 20px; </string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

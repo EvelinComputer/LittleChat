@@ -6,46 +6,55 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>592</width>
-    <height>771</height>
+    <width>849</width>
+    <height>780</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: rgb(170, 144, 255);</string>
+   <string notr="true">background-color: #B9B4C7;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background: #6C667D;
+	border-radius: 25px;
+	color: #D0CBDC;
+}
+
+QPushButton:hover{
+	background: #77679F;
+	border-radius: 25px;
+	color: #352F44;
+}
+
+QPushButton:pressed{
+	background: #211D2B;
+	border-radius: 25px;
+	color: #B9B4C7;
+}</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="0">
-     <widget class="QLabel" name="L_Error">
-      <property name="minimumSize">
+    <item row="1" column="0">
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
        <size>
-        <width>0</width>
-        <height>70</height>
+        <width>20</width>
+        <height>10</height>
        </size>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>23</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
+     </spacer>
     </item>
-    <item row="4" column="0">
-     <spacer name="verticalSpacer">
+    <item row="9" column="0">
+     <spacer name="verticalSpacer_4">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -57,7 +66,58 @@
       </property>
      </spacer>
     </item>
-    <item row="1" column="0">
+    <item row="8" column="0">
+     <widget class="QPushButton" name="B_ToReg">
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Зарегистрироваться!</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="L_YouHaventAcc">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>600</width>
+        <height>750</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #352F44;
+border-radius: 20px;
+color: #B9B4C7</string>
+      </property>
+      <property name="text">
+       <string>Ещё нету аккаунта?</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
      <widget class="QWidget" name="widget" native="true">
       <property name="minimumSize">
        <size>
@@ -77,8 +137,8 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgb(87, 57, 147);
-border-radius: 100px;</string>
+       <string notr="true">background: #352F44;
+border-radius: 20px;</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="10" column="0">
@@ -106,21 +166,21 @@ border-radius: 100px;</string>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton{
-	background: rgb(133, 80, 226);
-	border-radius: 15px;
-	color:rgb(68, 34, 116);
+	background: #6C667D;
+	border-radius: 20px;
+	color: #D0CBDC;
 }
 
 QPushButton:hover{
-	background: rgb(47, 18, 98);
-	border-radius: 15px;
-	color:rgb(22, 7, 47)
+	background: #77679F;
+	border-radius: 20px;
+	color: #352F44;
 }
 
 QPushButton:pressed{
-	background: rgb(37, 18, 75);
+	background: #211D2B;
 	border-radius: 20px;
-	color:rgb(141, 88, 221);
+	color: #B9B4C7;
 }</string>
          </property>
          <property name="text">
@@ -166,8 +226,8 @@ QPushButton:pressed{
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
+          <string notr="true">background:  #D0CBDC;
+color: #352F44;
 border-radius: 20px; </string>
          </property>
          <property name="text">
@@ -200,8 +260,8 @@ border-radius: 20px; </string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
+          <string notr="true">background-color: #B9B4C7;
+color: #5F5675;
 border-radius: 15px; </string>
          </property>
          <property name="alignment">
@@ -234,9 +294,12 @@ border-radius: 15px; </string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background: rgb(192, 147, 255);
-color: rgb(109, 66, 168);
+          <string notr="true">background-color: #B9B4C7;
+color: #5F5675;
 border-radius: 15px; </string>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -265,8 +328,8 @@ border-radius: 15px; </string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background: rgb(179, 128, 255);
-color: rgb(109, 66, 168);
+          <string notr="true">background:  #D0CBDC;
+color: #352F44;
 border-radius: 20px; </string>
          </property>
          <property name="text">
@@ -302,8 +365,8 @@ border-radius: 20px; </string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background: rgb(133, 80, 226);
-color: rgb(61, 27, 111);
+          <string notr="true">background: #5C5470;
+color: #B9B4C7;
 border-radius: 30px; </string>
          </property>
          <property name="text">
@@ -317,91 +380,8 @@ border-radius: 30px; </string>
       </layout>
      </widget>
     </item>
-    <item row="7" column="0">
-     <widget class="QPushButton" name="B_ToReg">
-      <property name="font">
-       <font>
-        <pointsize>25</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background: rgb(133, 80, 226);
-	border-radius: 15px;
-	color:rgb(68, 34, 116);
-}
-
-QPushButton:hover{
-	background: rgb(47, 18, 98);
-	border-radius: 15px;
-	color:rgb(22, 7, 47)
-}
-
-QPushButton:pressed{
-	background: rgb(37, 18, 75);
-	border-radius: 20px;
-	color:rgb(141, 88, 221);
-}</string>
-      </property>
-      <property name="text">
-       <string>Зарегистрироваться!</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="L_YouHaventAcc">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>600</width>
-        <height>750</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>26</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: rgb(49, 32, 102);
-border-radius: 35px;
-color: rgb(133, 80, 226)</string>
-      </property>
-      <property name="text">
-       <string>Ещё нету аккаунта?</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <spacer name="verticalSpacer_5">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Minimum</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>10</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="8" column="0">
-     <spacer name="verticalSpacer_4">
+    <item row="3" column="0">
+     <spacer name="verticalSpacer_6">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -413,8 +393,36 @@ color: rgb(133, 80, 226)</string>
       </property>
      </spacer>
     </item>
-    <item row="2" column="0">
-     <spacer name="verticalSpacer_6">
+    <item row="4" column="0">
+     <widget class="QLabel" name="L_Error">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>23</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:  #D0CBDC;
+color: #6E677F;
+border-radius: 20px; </string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>

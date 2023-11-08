@@ -8,7 +8,7 @@ class Account:
     __id = int  # ID аккаунта
     __login = str  # Логин аккаунта
     __password = str  # Пароль аккаунта
-    __pincode = str  # Пинкод аккаунта
+    __pincode = int  # Пинкод аккаунта
 
     def __init__(self, id = None, login = None, password = None, pincode = None):
         self.__id = id
