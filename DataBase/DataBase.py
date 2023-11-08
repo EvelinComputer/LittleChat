@@ -38,7 +38,6 @@ class DataBase_MySQL:
         #  '{4}', '{5}', {6}, CURRENT_TIMESTAMP);"""
         #  .format(id, login, password, last_name, first_name, phone_number, email, pincode))
 
-        """ @TODO Добавить проверку заполнения полей!!! """
         if '' in [login, password, last_name, first_name, phone_number, email, pincode]:
             sms = 'Заполните ВСЕ поля'
             log.error(sms)

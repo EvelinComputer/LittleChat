@@ -1,0 +1,35 @@
+INFO:root:11/04/2023, 21:00:51 >>> >>> Start server "Little Chat" <<<
+INFO:root:11/04/2023, 21:00:51 >>> >>> Address: 127.0.0.1:1000 <<<
+INFO:root:11/04/2023, 21:00:51 >>> Admin State: SocketState.HostLookupState
+INFO:root:11/04/2023, 21:00:51 >>> Admin State: SocketState.ConnectingState
+INFO:root:11/04/2023, 21:00:51 >>> Admin State: SocketState.ConnectedState
+INFO:root:11/04/2023, 21:00:51 >>> Connect new client
+INFO:root:11/04/2023, 21:00:51 >>> 0|ADMIN|"ADMIN ENABLED"
+INFO:root:11/04/2023, 21:01:04 >>> >>> Start server "Little Chat" <<<
+INFO:root:11/04/2023, 21:01:04 >>> >>> Address: 127.0.0.1:1000 <<<
+INFO:root:11/04/2023, 21:01:04 >>> Admin State: SocketState.HostLookupState
+INFO:root:11/04/2023, 21:01:04 >>> Admin State: SocketState.ConnectingState
+INFO:root:11/04/2023, 21:01:04 >>> Admin State: SocketState.ConnectedState
+INFO:root:11/04/2023, 21:01:04 >>> Connect new client
+INFO:root:11/04/2023, 21:01:04 >>> 0|ADMIN|"ADMIN ENABLED"
+INFO:root:11/04/2023, 21:04:48 >>> >>> Start server "Little Chat" <<<
+INFO:root:11/04/2023, 21:04:48 >>> >>> Address: 127.0.0.1:1000 <<<
+INFO:root:11/04/2023, 21:04:48 >>> Admin State: SocketState.HostLookupState
+INFO:root:11/04/2023, 21:04:48 >>> Admin State: SocketState.ConnectingState
+INFO:root:11/04/2023, 21:04:48 >>> Connect new client
+INFO:root:11/04/2023, 21:04:48 >>> Admin State: SocketState.ConnectedState
+INFO:root:11/04/2023, 21:04:48 >>> 0|ADMIN|"ADMIN ENABLED"
+INFO:root:11/04/2023, 21:05:51 >>> >>> Start server "Little Chat" <<<
+INFO:root:11/04/2023, 21:05:51 >>> >>> Address: 127.0.0.1:1000 <<<
+INFO:root:11/04/2023, 21:05:51 >>> Admin State: SocketState.HostLookupState
+INFO:root:11/04/2023, 21:05:51 >>> Admin State: SocketState.ConnectingState
+INFO:root:11/04/2023, 21:05:52 >>> Admin State: SocketState.ConnectedState
+INFO:root:11/04/2023, 21:05:52 >>> Connect new client
+INFO:root:11/04/2023, 21:05:52 >>> 0|ADMIN|"ADMIN ENABLED"
+INFO:root:11/04/2023, 21:05:56 >>> >>> Start server "Little Chat" <<<
+INFO:root:11/04/2023, 21:05:56 >>> >>> Address: 127.0.0.1:1000 <<<
+INFO:root:11/04/2023, 21:05:56 >>> Admin State: SocketState.HostLookupState
+INFO:root:11/04/2023, 21:05:56 >>> Admin State: SocketState.ConnectingState
+INFO:root:11/04/2023, 21:05:56 >>> Admin State: SocketState.ConnectedState
+INFO:root:11/04/2023, 21:05:56 >>> Connect new client
+INFO:root:11/04/2023, 21:05:56 >>> 0|ADMIN|"ADMIN ENABLED"
