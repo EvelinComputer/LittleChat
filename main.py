@@ -1,21 +1,16 @@
 from PyQt6.QtWidgets import QApplication
-from DataBase.DataBase import DataBase_MySQL
-from AutorisWindow.AutorisWindow import AutorisWindow
-from Server.Server import LittleChatServer
+from LittleChat import LittleChat
 
 def Main():
 
     # Запуск QT ядра
     App = QApplication([])
 
-    # Подключение к серверу
-    Server = LittleChatServer()
-
     # Создание окна
-    Win = AutorisWindow(Server)
+    Soft = LittleChat()
 
     # Показ окна
-    Win.showFullScreen()
+    Soft.start()
 
     # Запуск
     App.exec()

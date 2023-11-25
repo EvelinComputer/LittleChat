@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>926</width>
-    <height>675</height>
+    <height>712</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,345 +49,28 @@ QPushButton:pressed{
 }</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="0" column="2">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="6" column="1">
-     <widget class="QLabel" name="L_PhoneNumber">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>15</height>
-       </size>
-      </property>
+    <item row="17" column="3">
+     <widget class="QPushButton" name="B_ToSignUp">
       <property name="maximumSize">
        <size>
-        <width>437</width>
-        <height>45</height>
+        <width>600</width>
+        <height>75</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>19</pointsize>
+        <pointsize>26</pointsize>
         <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:  #D0CBDC;
-color: #352F44;
-border-radius: 20px; </string>
-      </property>
-      <property name="text">
-       <string>Номер телефона</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="T_Registration">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>438</width>
-        <height>79</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>450</width>
-        <height>64</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>33</pointsize>
-        <weight>75</weight>
+        <italic>false</italic>
         <bold>true</bold>
        </font>
       </property>
       <property name="text">
-       <string>Регистрация</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+       <string>Войти!</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="1">
-     <widget class="QLineEdit" name="LE_PhoneNumber">
-      <property name="maximumSize">
-       <size>
-        <width>437</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: #5C5470;
-	color: #B9B4C7;
-	border-radius: 30px; </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="3">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>10</width>
-        <height>10</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="6" column="3">
-     <widget class="QLabel" name="L_Email">
-      <property name="maximumSize">
-       <size>
-        <width>437</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>19</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:  #D0CBDC;
-color: #352F44;
-border-radius: 20px; </string>
-      </property>
-      <property name="text">
-       <string>Электронная почта</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="3">
-     <widget class="QLineEdit" name="LE_Email">
-      <property name="maximumSize">
-       <size>
-        <width>437</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: #5C5470;
-	color: #B9B4C7;
-	border-radius: 30px; </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="QLabel" name="T_Password">
-      <property name="minimumSize">
-       <size>
-        <width>12</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>437</width>
-        <height>45</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>24</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:  #D0CBDC;
-color: #352F44;
-border-radius: 20px; </string>
-      </property>
-      <property name="text">
-       <string>Пароль</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="LE_Login">
-      <property name="minimumSize">
-       <size>
-        <width>12</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>437</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: #5C5470;
-	color: #B9B4C7;
-	border-radius: 30px; </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="dragEnabled">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Minimum</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>30</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLabel" name="L_LastName">
-      <property name="minimumSize">
-       <size>
-        <width>12</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>437</width>
-        <height>45</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>19</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:  #D0CBDC;
-color: #352F44;
-border-radius: 20px; </string>
-      </property>
-      <property name="text">
-       <string>Фамилия</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLabel" name="T_Login">
-      <property name="minimumSize">
-       <size>
-        <width>12</width>
-        <height>39</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>437</width>
-        <height>45</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>24</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:  #D0CBDC;
-color: #352F44;
-border-radius: 20px; </string>
-      </property>
-      <property name="text">
-       <string>Логин</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="3">
+    <item row="5" column="3">
      <widget class="QLineEdit" name="LE_Password">
       <property name="minimumSize">
        <size>
@@ -421,31 +104,36 @@ border-radius: 20px; </string>
       </property>
      </widget>
     </item>
-    <item row="14" column="3">
-     <widget class="QLabel" name="T_YouAlreadyHaveAcc">
+    <item row="2" column="3">
+     <widget class="QLabel" name="Info">
+      <property name="minimumSize">
+       <size>
+        <width>415</width>
+        <height>79</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>600</width>
-        <height>75</height>
+        <width>415</width>
+        <height>64</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>24</pointsize>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
+        <pointsize>11</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="text">
-       <string>Уже есть аккаунт?</string>
+       <string>Мы не делимся данными со сторонними лицами</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="12" column="1">
+    <item row="14" column="1">
      <widget class="QLineEdit" name="LE_Pincode">
       <property name="maximumSize">
        <size>
@@ -473,8 +161,58 @@ border-radius: 20px; </string>
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="LE_LastName">
+    <item row="15" column="3">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>10</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="8" column="1">
+     <widget class="QLabel" name="L_PhoneNumber">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>437</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>19</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
+      </property>
+      <property name="text">
+       <string>Номер телефона</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="3">
+     <widget class="QLabel" name="L_Email">
       <property name="maximumSize">
        <size>
         <width>437</width>
@@ -483,28 +221,138 @@ border-radius: 20px; </string>
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>19</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #5C5470;
-	color: #B9B4C7;
-	border-radius: 30px; </string>
-      </property>
-      <property name="inputMask">
-       <string/>
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
       </property>
       <property name="text">
-       <string/>
+       <string>Электронная почта</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="4" column="3">
+    <item row="3" column="1">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>30</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="2">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="0">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="6" column="4">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="16" column="3">
+     <widget class="QLabel" name="T_YouAlreadyHaveAcc">
+      <property name="maximumSize">
+       <size>
+        <width>600</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Уже есть аккаунт?</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLabel" name="L_LastName">
+      <property name="minimumSize">
+       <size>
+        <width>12</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>437</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>19</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
+      </property>
+      <property name="text">
+       <string>Фамилия</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
      <widget class="QLabel" name="L_FirstName">
       <property name="minimumSize">
        <size>
@@ -538,7 +386,56 @@ border-radius: 20px; </string>
       </property>
      </widget>
     </item>
-    <item row="5" column="3">
+    <item row="4" column="1">
+     <widget class="QLabel" name="T_Login">
+      <property name="minimumSize">
+       <size>
+        <width>12</width>
+        <height>39</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>437</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
+      </property>
+      <property name="text">
+       <string>Логин</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="3">
+     <widget class="QPushButton" name="B_Registration">
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Зарегистрироваться</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="3">
      <widget class="QLineEdit" name="LE_FirstName">
       <property name="maximumSize">
        <size>
@@ -563,7 +460,144 @@ border-radius: 20px; </string>
       </property>
      </widget>
     </item>
-    <item row="10" column="1">
+    <item row="9" column="1">
+     <widget class="QLineEdit" name="LE_PhoneNumber">
+      <property name="maximumSize">
+       <size>
+        <width>437</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="LE_LastName">
+      <property name="maximumSize">
+       <size>
+        <width>437</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="16" column="1">
+     <widget class="QLabel" name="L_Error">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:  #D0CBDC;
+color: #6E677F;
+border-radius: 20px; </string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QLabel" name="T_Password">
+      <property name="minimumSize">
+       <size>
+        <width>12</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>437</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:  #D0CBDC;
+color: #352F44;
+border-radius: 20px; </string>
+      </property>
+      <property name="text">
+       <string>Пароль</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="3">
+     <widget class="QLineEdit" name="LE_Email">
+      <property name="maximumSize">
+       <size>
+        <width>437</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="1">
      <widget class="QLabel" name="T_Pincode">
       <property name="minimumSize">
        <size>
@@ -597,86 +631,80 @@ border-radius: 20px; </string>
       </property>
      </widget>
     </item>
-    <item row="10" column="3">
-     <widget class="QPushButton" name="B_Registration">
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="LE_Login">
+      <property name="minimumSize">
+       <size>
+        <width>12</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>437</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <property name="font">
        <font>
-        <pointsize>24</pointsize>
+        <pointsize>15</pointsize>
         <weight>75</weight>
-        <italic>false</italic>
         <bold>true</bold>
        </font>
       </property>
-      <property name="text">
-       <string>Зарегистрироваться</string>
+      <property name="styleSheet">
+       <string notr="true">background: #5C5470;
+	color: #B9B4C7;
+	border-radius: 30px; </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="dragEnabled">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
-    <item row="0" column="3">
-     <widget class="QLabel" name="Info">
+    <item row="2" column="1">
+     <widget class="QLabel" name="T_Registration">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="minimumSize">
        <size>
-        <width>415</width>
+        <width>438</width>
         <height>79</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>415</width>
+        <width>450</width>
         <height>64</height>
        </size>
       </property>
       <property name="font">
        <font>
-        <pointsize>11</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
+        <pointsize>33</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
-       <string>Мы не делимся данными со сторонними лицами</string>
+       <string>Регистрация</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="15" column="3">
-     <widget class="QPushButton" name="B_ToSignUp">
-      <property name="maximumSize">
+    <item row="1" column="1">
+     <widget class="QPushButton" name="B_Exit">
+      <property name="minimumSize">
        <size>
-        <width>600</width>
-        <height>75</height>
+        <width>0</width>
+        <height>50</height>
        </size>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>26</pointsize>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Войти!</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="4">
-     <spacer name="horizontalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="14" column="1">
-     <widget class="QLabel" name="L_Error">
       <property name="font">
        <font>
         <pointsize>20</pointsize>
@@ -684,16 +712,28 @@ border-radius: 20px; </string>
         <bold>true</bold>
        </font>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background:  #D0CBDC;
-color: #6E677F;
-border-radius: 20px; </string>
+      <property name="text">
+       <string>Выйти</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QPushButton" name="B_Close">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+       <string>Закрыть</string>
       </property>
      </widget>
     </item>

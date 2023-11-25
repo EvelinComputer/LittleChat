@@ -1,11 +1,16 @@
+import sys
 import datetime
 import logging as log
+
+from PyQt6 import uic
 from PyQt6.QtCore import QObject
-from PyQt6.QtWidgets import QApplication
-from DataBase.DataBase import DataBase_MySQL
+from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtNetwork import QTcpServer, QHostAddress, QHostInfo, QTcpSocket, QAbstractSocket
 
+sys.path.append("./../DataBase")
+from DataBase import DataBase_MySQL
 
+'''@TODO ГДЕ КОММЕНТАРИИ !!!'''
 class ClientList(list):
 
     def __init__(self):
@@ -45,36 +50,57 @@ class ClientList(list):
             return self[index]
         return None
 
-
-class LittleChatServer(QObject):
+'''@TODO ГДЕ КОММЕНТАРИИ !!!'''
+class LittleChatServer(QMainWindow):
 
     def __init__(self):
 
         super(LittleChatServer, self).__init__()
+        uic.loadUi("server.ui", self)
 
         # Магия над log
         log.basicConfig()
         self.__logger = log.getLogger()
         self.__logger.setLevel(log.INFO)
 
+        self.__Power = False
+
         # Подключение к базе данных
         self.__DB = DataBase_MySQL()
+        if self.__DB.isConnected():
+            self.__logMessage(">>> Connected to MySQL")
+        else:
+            self.__logError(">>> Not connected to MySQL")
 
         # Создание локальных переменных, связанных с сервером
-        self.__IP__ = QHostAddress('127.0.0.1')
-        self.__Port__ = 1000
         self.__ClientAdmin__ = QTcpSocket()
         self.__ClientAdmin__.stateChanged.connect(self.__stateChangedClient)
         self.__Server__ = QTcpServer()
         self.__Server__.newConnection.connect(self.__newConnection)
         self.__ClientList__ = ClientList()
 
-        # Старт
-        if self.__Server__.listen(self.__IP__, self.__Port__):
-            self.__logMessage('>>> Start server "Little Chat" <<<')
-            self.__logMessage('>>> Address: {0}:{1} <<<'.format(self.__IP__.toString(), self.__Port__))
-            self.__ClientAdmin__.connectToHost(self.__IP__, self.__Port__)
-        # Ошибка при старте
+        # Обработка кнопки
+        self.B_Push.clicked.connect(self.__PushClicked)
+        self.B_Clear.clicked.connect(self.__ClearClicked)
+
+        # Запуск сервера
+        self.__CMD_Start()
+
+    # Старт
+    def __CMD_Start(self, ip='127.0.0.1', port=1010):
+
+        self.__IP__ = QHostAddress(str(ip))
+        self.__Port__ = int(port)
+
+        if self.__DB.isConnected():
+            if self.__Server__.listen(self.__IP__, self.__Port__):
+                self.__logMessage('>>> Start server "Little Chat"')
+                self.__logMessage('>>> Address: {0}:{1}'.format(self.__IP__.toString(), self.__Port__))
+                self.__ClientAdmin__.connectToHost(self.__IP__, self.__Port__)
+                self.__Power = True
+            # Ошибка при старте
+            else:
+                self.__logError('Error start server')
         else:
             self.__logError('Error start server')
 
@@ -86,11 +112,38 @@ class LittleChatServer(QObject):
     def newAccountDB(self, login, password, last_name, first_name, phone_number, email, pincode):
         return self.__DB.newAccount(login, password, last_name, first_name, phone_number, email, pincode)
 
+    def __PushClicked(self):
+        text = self.LE_Command.text()
+        self.LE_Command.setText("")
+        if self.__Power and text[0] != '/':
+            self.__ClientAdmin__.write(str.encode(str(text)))
+        else:
+            if(text == "/StartMySQL"):
+                if(self.__DB.isConnected()):
+                    self.__logError(">>> MySQL already working")
+                else:
+                    if self.__DB.reconnect():
+                        self.__logMessage(">>> Connected to MySQL")
+                    else:
+                        self.__logError(">>> Not connected to MySQL")
+            elif text == "/StartServer":
+                if self.__Power:
+                    self.__logError(">>> Server already working")
+                else:
+                    self.__CMD_Start()
+
+    def __ClearClicked(self):
+        self.LW_Console.clear()
+
+
+
+
     # Функция, которая вызывается при подключении нового клиента
     def __newConnection(self):
+
         # Новый клиент
         newClient = self.__Server__.nextPendingConnection()
-        self.__logMessage('Connect new client')
+        if(len(self.__ClientList__) > 0): self.__logMessage('>>> Connect new client')
 
         # ID и связка функций клиента
         id = self.__ClientList__.addClient(newClient)
@@ -120,7 +173,7 @@ class LittleChatServer(QObject):
 
         # Условие, которое срабатывает, когда админ подключается к серверу
         if state == QAbstractSocket.SocketState.ConnectedState:
-            self.__ClientAdmin__.write(str.encode("ADMIN ENABLED"))
+            self.__ClientAdmin__.write(str.encode("<IsAdmin>"))
 
     # Функция, которая вызывается при обработке команд
     def __readyReadClient(self):
@@ -135,33 +188,70 @@ class LittleChatServer(QObject):
         keyError = True
         message = "Command not found!"
 
-        if command == 'Hello':
+        # ----
+        if command == '<Check>':
             keyError = False
             message = 'YOU "{0}"'.format(self.__ClientList__.getLoginByID(id))
-        elif command == 'ADMIN ENABLED':
+
+        # ---
+        elif command == '<IsAdmin>':
             if id == 0:
-                message = 'Ok'
+                message = 'YOU ADMIN'
                 self.__logMessage(message)
                 return
             else:
                 keyError = True
                 message = 'Not permission'
+                # <CA>|a|a|</>
+
+        # Обработка команды Check Account
+        elif command.find("<CA>") == 0:
+
+            # Расшифровка пакета
+            tmp = command.split('|')
+            login = str(tmp[1])
+            password = str(tmp[2])
+
+            # Проверка акккаунта на существование
+            keyError, result = self.__DB.checkAccount(login, password)
+
+            # Отправка клиенту сообщения об авторизации
+            client.write(str.encode("<CA>|" + str(keyError) + "|" + result + "|</>"))
+
+            keyError = not keyError
+
+            # Если ошибка
+            if(keyError):
+                message = "Ошибка авторизации!"
+
+            # Если авторизация пройдена
+            else:
+                message = result
+
+                # Получение имени аккаунта
+                data = self.__DB.getNameAccount(login)
+                client.write(str.encode("<NAME>|" + str(data[0]) + "|" + str(data[1]) + "|</>"))
+
 
         if keyError:
-            client.write(str.encode("E|" + message))
+            client.write(str.encode("<E>|" + message + "|</>"))
             self.__logError('ID: {0} -> User: "{1}" -> Error: "{2}"'.
                             format(str(id), self.__ClientList__.getLoginByID(id), message))
         else:
-            client.write(str.encode("M|" + message))
+            client.write(str.encode("<M>|" + message + "|</>"))
             self.__logMessage('ID: {0} -> User: "{1}" -> Push: "{2}"'.
                               format(str(id), self.__ClientList__.getLoginByID(id), message))
 
     # Функции для упрощения работы с log
     def __logMessage(self, message: str):
-        self.__logger.info(" " + datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + " | " + message)
+        text = datetime.datetime.utcnow().isoformat(sep=' ', timespec='milliseconds') + " | " + message
+        self.__logger.info(" " + text)
+        self.LW_Console.addItem(text)
 
     def __logError(self, message: str):
-        self.__logger.error(" " + datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + " | " + message)
+        text = datetime.datetime.utcnow().isoformat(sep=' ', timespec='milliseconds') + " | " + message
+        self.__logger.error(" " + text)
+        self.LW_Console.addItem(text)
 
 
 def Main():
@@ -169,6 +259,7 @@ def Main():
     App = QApplication([])
 
     Server = LittleChatServer()
+    Server.show()
 
     # Запуск
     App.exec()

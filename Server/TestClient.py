@@ -5,7 +5,6 @@ from PyQt6.QtWidgets import QApplication
 from PyQt6.QtNetwork import QTcpSocket, QHostAddress, QHostInfo, QAbstractSocket
 
 
-
 class LittleChatClient(QObject):
 
     def __init__(self):
@@ -21,7 +20,7 @@ class LittleChatClient(QObject):
         self.__Client__.stateChanged.connect(self.__stateChanged)
         self.__Client__.readyRead.connect(self.__reader)
 
-        self.__Client__.connectToHost(QHostAddress('127.0.0.1'), 1000)
+        self.__Client__.connectToHost(QHostAddress('127.0.0.1'), 1010)
         self.__logMessage('>>> Start client "Little Chat" <<<')
 
     def __connectedToComplete(self):
@@ -38,6 +37,8 @@ class LittleChatClient(QObject):
             self.__logMessage(message[2:])
         elif message[:2] == 'E|':
             self.__logError(message[2:])
+        elif message[:3] == 'CA|':
+            self.__logMessage("Autorisation account...")
         else:
             self.__logMessage("TCP: " + message)
         command = str(input('>>> '))
@@ -49,11 +50,12 @@ class LittleChatClient(QObject):
     def __logError(self, message: str):
         self.__logger.error(" " + datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + " | " + message)
 
-
+    def checkAcc(self, login, password):
+        command = f"CA|{login}|{password}"  # CA - Check Account (Проверить аккаунт)
+        self.__Client__.write(str.encode(command))
 
 
 def Main():
-
     # Запуск QT ядра
     App = QApplication([])
 
@@ -61,7 +63,6 @@ def Main():
 
     # Запуск
     App.exec()
-
 
 
 if __name__ == "__main__": Main()
