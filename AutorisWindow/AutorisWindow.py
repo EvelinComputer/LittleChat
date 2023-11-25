@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import QMainWindow
 
 class AutorisWindow(QMainWindow):
 
+    # Сигналы
     sigShowReg = pyqtSignal()
     sigShowChat = pyqtSignal()
     sigLogError = pyqtSignal(str)
@@ -18,6 +19,7 @@ class AutorisWindow(QMainWindow):
         # Загружаем UI форму (Qt Designer)
         uic.loadUi("./AutorisWindow/AutorisWindow.ui", self)
 
+        # Обработка кнопок
         self.B_Enter.clicked.connect(self.__EnterClick)
         self.B_ToReg.clicked.connect(self.__ToRegistration)
         self.B_Exit.clicked.connect(self.hide)

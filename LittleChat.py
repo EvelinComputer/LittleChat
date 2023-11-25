@@ -91,51 +91,68 @@ class LittleChat(QObject):
     def __ShowChat(self):
         self.__ChatWin.showFullScreen()
 
+    # Сообщение о подключении клиента к серверу
     def __ClientConnected(self):
         self.__logMessage("Connect to server")
 
+    # Сообщение о смене состояния клиента
     def __ClientStateChanged(self, state):
         self.__logMessage("State: " + str(state))
         if state == QAbstractSocket.SocketState.ConnectedState:
             self.__Client__.write(str.encode(str("<Check>")))
 
+    # Сообщение о отключении клиента
     def __ClientDisconnected(self):
         self.__logMessage("Disconnect to server")
 
+    # Сообщение о ошибки клиента
     def __ClientError(self, error):
         self.__logError("Error: " + str(error))
 
+    # Сообщение о нахождении сервера
     def __ClientHostFound(self):
         self.__logMessage("Server found")
 
+    # Проверка аккаунта
     def __CheckAccount(self, login: str, password: str):
         self.__Client__.write(str.encode("<CA>|{0}|{1}|</>".format(login, password)))
-        self.__timerCount = 0
-        self.__Timer.start(200)
 
+        self.__timerCount = 0       # Счётчик для таймера
+        self.__Timer.start(200)     # Старт таймера
+
+    # Таймер остановился
     def __Timeout(self):
-        self.__timerCount += 1
+        self.__timerCount += 1      # Добавление к счётчику
 
+        # Когда получен ответ
         if self.__answerAutorisation:
+            # Если ответ оказался положительным
             if self.__successAutorisation:
+                # Проверка на заполненные поля
                 if self.__firstName != "" and self.__lastName != "":
+                    # Переход из окна регистрации в окно чата
                     self.__ChatWin.showFullScreen()
                     self.__AutorisWin.hide()
-                    self.__Timer.stop()
-                    self.__timerCount = 0
-                    self.__answerAutorisation = False
+                    self.__Timer.stop()                 # Остановка таймера
+                    self.__timerCount = 0               # Обновление счётчика
+                    self.__answerAutorisation = False   # Обновление состояния ответа
                     return None
+            # Если ответ оказался отрицательным
             else:
+                # Выдача предупреждения
                 QMessageBox.warning(None, "Авторизация", self.__messageAutorisation)
-                self.__Timer.stop()
-                self.__timerCount = 0
-                self.__answerAutorisation = False
+
+                self.__Timer.stop()                 # Остановка таймера
+                self.__timerCount = 0               # Обновление счётчика
+                self.__answerAutorisation = False   # Обновление состояния ответа
                 return None
 
         # Когда время вышло
         if self.__timerCount == 10:
-            self.__Timer.stop()
-            self.__timerCount = 0
+            self.__Timer.stop()         # Остановка таймера
+            self.__timerCount = 0       # Обновление счётчика
+
+            # Выдача критической ошибки
             QMessageBox.critical(None, "Ошибка", "Превышен интервал лимита ожидания.")
 
     # Обработка команд от сервера

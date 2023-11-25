@@ -86,21 +86,26 @@ class LittleChatServer(QMainWindow):
         # Запуск сервера
         self.__CMD_Start()
 
-    # Старт
+    # Старт консоли
     def __CMD_Start(self, ip='127.0.0.1', port=1010):
 
-        self.__IP__ = QHostAddress(str(ip))
-        self.__Port__ = int(port)
+        self.__IP__ = QHostAddress(str(ip))         # Получение IP
+        self.__Port__ = int(port)                   # Получения порта
 
+        # В случае если база данных подключена
         if self.__DB.isConnected():
             if self.__Server__.listen(self.__IP__, self.__Port__):
                 self.__logMessage('>>> Start server "Little Chat"')
                 self.__logMessage('>>> Address: {0}:{1}'.format(self.__IP__.toString(), self.__Port__))
+
+                # Подключение к серверу
                 self.__ClientAdmin__.connectToHost(self.__IP__, self.__Port__)
+                # Обновление состояния работы сервера
                 self.__Power = True
             # Ошибка при старте
             else:
                 self.__logError('Error start server')
+        # В случае если база данных отключена
         else:
             self.__logError('Error start server')
 
@@ -112,31 +117,42 @@ class LittleChatServer(QMainWindow):
     def newAccountDB(self, login, password, last_name, first_name, phone_number, email, pincode):
         return self.__DB.newAccount(login, password, last_name, first_name, phone_number, email, pincode)
 
+    # Функция, которая отправляет команду в консоль и обрабатывает некоторые из них
     def __PushClicked(self):
-        text = self.LE_Command.text()
-        self.LE_Command.setText("")
+        text = self.LE_Command.text()       # Получение текста команды
+        self.LE_Command.setText("")         # Очистка поля ввода
+
+        # Если команда является обычным сообщением
         if self.__Power and text[0] != '/':
             self.__ClientAdmin__.write(str.encode(str(text)))
+
+        # В ином случае идёт обработка команды
         else:
+            # Обработка команды StartMySQL
             if(text == "/StartMySQL"):
+                # Если база данных подключена
                 if(self.__DB.isConnected()):
                     self.__logError(">>> MySQL already working")
+                # Если база данных отключена
                 else:
+                    # В случае успешного подключения
                     if self.__DB.reconnect():
                         self.__logMessage(">>> Connected to MySQL")
+                    # В случае если не удалось подключиться к базе данных
                     else:
                         self.__logError(">>> Not connected to MySQL")
+            # Обработка команды StartServer
             elif text == "/StartServer":
+                # Если сервер уже подключен
                 if self.__Power:
                     self.__logError(">>> Server already working")
+                # Если сервер отключен
                 else:
                     self.__CMD_Start()
 
+    # Функция, которая очищает консоль
     def __ClearClicked(self):
         self.LW_Console.clear()
-
-
-
 
     # Функция, которая вызывается при подключении нового клиента
     def __newConnection(self):
@@ -188,12 +204,12 @@ class LittleChatServer(QMainWindow):
         keyError = True
         message = "Command not found!"
 
-        # ----
+        # Обработка команды Check
         if command == '<Check>':
             keyError = False
             message = 'YOU "{0}"'.format(self.__ClientList__.getLoginByID(id))
 
-        # ---
+        # Обработка команды IsAdmin
         elif command == '<IsAdmin>':
             if id == 0:
                 message = 'YOU ADMIN'
